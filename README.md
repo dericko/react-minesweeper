@@ -15,9 +15,9 @@ How to lose: click on a bomb
 
 Configuration: edit `gameConfig.js` to adjust board size, number of bombs
 
-Gameplay: [How to play](https://en.wikipedia.org/wiki/Minesweeper_(video_game)
+Strategy: [How to play](http://www.minesweeper.info/wiki/Strategy)
 
-Etymology: [Minesweeping ships](https://en.wikipedia.org/wiki/Minesweeper)
+Origins: [Minesweeping ships](https://en.wikipedia.org/wiki/Minesweeper)
 
 By Derick Olson
 Bootstrapped with create-react-app
