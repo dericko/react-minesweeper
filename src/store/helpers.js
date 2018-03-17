@@ -34,6 +34,7 @@ export function clearSurroundingCells(board, cell) {
   const W = board[0].length;
 
   const Q = [];
+  const numberNeighbors = [];
   Q.push(cell);
   while (Q.length > 0) {
     const nextCell = Q.shift();
@@ -45,8 +46,8 @@ export function clearSurroundingCells(board, cell) {
       getSpread(col, W).forEach(b => {
         if (!(a === row && b === col)) {
           const neighbor = board[a][b];
-          if (shouldClear(neighbor)) {
-            neighbor.status = CELL_STATES.OPEN;
+          if (neighbor.value !== CELL.BOMB && neighbor.value !== CELL.EMPTY) {
+            numberNeighbors.push(neighbor);
           }
           if (shouldAdd(neighbor)) {
             Q.push(neighbor);
@@ -55,6 +56,7 @@ export function clearSurroundingCells(board, cell) {
       })
     });
   }
+  numberNeighbors.forEach(cell => cell.status = CELL_STATES.OPEN)
 }
 
 function incrementCell(board, row, col) {
