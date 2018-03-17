@@ -2,12 +2,14 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import Cell from '../components/Cell';
+import { GAME_STATES } from '../store/reducer';
 
 import './Board.css';
 
 class Board extends Component {
   render() {
-    const { board, dispatch } = this.props;
+    const { board, dispatch, gameStatus } = this.props;
+    const didLose = gameStatus === GAME_STATES.LOSE;
 
     return (
       <div className="Board">
@@ -22,6 +24,7 @@ class Board extends Component {
                     row={row}
                     col={col}
                     dispatch={dispatch}
+                    didLose={didLose}
                   />
                 );
               })}
@@ -34,8 +37,10 @@ class Board extends Component {
 }
 
 const mapStateToProps = (state) => {
+  const { board, gameStatus } = state;
   return {
-    board: state.board,
+    board,
+    gameStatus,
   }
 }
 export default connect(mapStateToProps)(Board);

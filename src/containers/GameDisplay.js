@@ -2,15 +2,16 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import RestartButton from '../components/RestartButton';
+import { GAME_STATES } from '../store/reducer';
 
 import './GameDisplay.css';
 
 class GameDisplay extends Component {
   colorForStatus = (status) => {
     switch (status) {
-      case 'PLAY': return 'lightblue';
-      case 'WIN': return 'lightgreen';
-      case 'LOSE': return 'red';
+      case GAME_STATES.PLAY: return 'lightblue';
+      case GAME_STATES.WIN: return 'lightgreen';
+      case GAME_STATES.LOSE: return 'red';
       default: return 'lightgray';
     }
   }

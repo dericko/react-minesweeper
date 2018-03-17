@@ -11,6 +11,13 @@ export function setEquals(a, b) {
   return true;
 }
 
+export function unflaggedBomb(value, status) {
+  return (
+    (value === CELL.BOMB && status !== CELL_STATES.FLAGGED) ||
+    (value !== CELL.BOMB && status === CELL_STATES.FLAGGED)
+  )
+}
+
 function getSpread(start, limit) {
   if (start === 0) {
     return [start, start+1]

@@ -9,12 +9,8 @@ import {
   clearSurroundingCells,
   setNumberedCells,
 } from './helpers';
+import { BOARD } from '../gameConfig';
 
-const BOARD = {
-  H: 12,
-  W: 12,
-  BOMB_FACTOR: 0.1,
-}
 export const CELL = {
   EMPTY: 0,
   BOMB: 9,
@@ -24,7 +20,7 @@ export const CELL_STATES = {
   HIDDEN: 'HIDDEN',
   FLAGGED: 'FLAGGED',
 }
-const GAME_STATES = {
+export const GAME_STATES = {
   PLAY: 'PLAY',
   WIN: 'WIN',
   LOSE: 'LOSE',
@@ -74,14 +70,18 @@ function initializeGame() {
 function handleOpenCell(state, row, col) {
   const { board, moves } = state;
   const cell = board[row][col];
+  const { value } = cell;
+  const didLose = value === CELL.BOMB;
+
   board[row][col] = {
     ...cell,
     status: CELL_STATES.OPEN,
+    losingCell: didLose,
   }
   if (cell.value === CELL.EMPTY) {
     clearSurroundingCells(board, cell);
   }
-  const didLose = cell.value === CELL.BOMB;
+
   return {
     ...state,
     board: board.slice(), // return a copy for re-render
