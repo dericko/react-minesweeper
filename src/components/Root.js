@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
-import { createStore, applyMiddleware } from 'redux'
-import logger from 'redux-logger';
+import { createStore } from 'redux'
 import { Provider } from 'react-redux';
 
 import reducer from '../store/reducer';
 import App from './App';
 
-const store = createStore(reducer, applyMiddleware(logger))
+const store = createStore(reducer);
 
 export default class Root extends Component {
   render() {

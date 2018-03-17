@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
+import RestartButton from '../components/RestartButton';
+
 import './GameDisplay.css';
 
 class GameDisplay extends Component {
@@ -13,7 +15,7 @@ class GameDisplay extends Component {
     }
   }
   render() {
-    const { gameStatus } = this.props;
+    const { dispatch, gameStatus, bombSet, flagSet, moves } = this.props;
     return (
       <div
         className="GameDisplay"
@@ -21,11 +23,13 @@ class GameDisplay extends Component {
           background: this.colorForStatus(gameStatus)
         }}>
         <div className="GameInfo">
-          3
+          <div>Bombs</div>
+          {bombSet.size - flagSet.size}
         </div>
-        <button className="RestartButton">Restart</button>
+        <RestartButton className="RestartButton" dispatch={dispatch} />
         <div className="GameInfo">
-          99
+          <div>Moves</div>
+          {moves}
         </div>
       </div>
     );
@@ -33,9 +37,12 @@ class GameDisplay extends Component {
 }
 
 const mapStateToProps = (state) => {
-  console.log(state)
+  const { gameStatus, bombSet, flagSet, moves } = state;
   return {
-    gameStatus: state.gameStatus,
+    gameStatus,
+    bombSet,
+    flagSet,
+    moves,
   }
 }
 export default connect(mapStateToProps)(GameDisplay);

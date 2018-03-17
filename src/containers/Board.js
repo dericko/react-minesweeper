@@ -7,15 +7,22 @@ import './Board.css';
 
 class Board extends Component {
   render() {
-    const { board } = this.props;
+    const { board, dispatch } = this.props;
+
     return (
       <div className="Board">
-        {board.map((row, i) => {
+        {board.map((cellsInRow, row) => {
           return (
-            <div className="Row" key={i}>
-              {row.map((cell, j) => {
+            <div className="Row" key={row}>
+              {cellsInRow.map((cell, col) => {
                 return (
-                  <Cell key={j} cell={cell} />
+                  <Cell
+                    key={col}
+                    cell={cell}
+                    row={row}
+                    col={col}
+                    dispatch={dispatch}
+                  />
                 );
               })}
             </div>
@@ -27,7 +34,6 @@ class Board extends Component {
 }
 
 const mapStateToProps = (state) => {
-  console.log(state)
   return {
     board: state.board,
   }

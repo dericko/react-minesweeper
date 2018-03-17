@@ -1,6 +1,6 @@
 export const OPEN_CELL = 'OPEN_CELL';
-export const FLAG_CELL = 'FLAG_CELL';
-export const UNFLAG_CELL = 'UNFLAG_CELL';
+export const TOGGLE_FLAG = 'TOGGLE_FLAG';
+export const RESTART_GAME = 'RESTART_GAME';
 
 function openCell(row, col) {
   return {
@@ -10,22 +10,22 @@ function openCell(row, col) {
   }
 }
 
-function flagCell(row, col) {
+function toggleFlag(row, col) {
   return {
-    type: FLAG_CELL,
+    type: TOGGLE_FLAG,
     row,
     col,
   }
 }
 
-function unflagCell(row, col) {
+function restartGame() {
   return {
-    type: UNFLAG_CELL,
-    row,
-    col,
+    type: RESTART_GAME,
   }
 }
 
 export default {
-  openCell, flagCell, unflagCell
+  openCell,
+  toggleFlag,
+  restartGame,
 }

@@ -1,4 +1,21 @@
 .Cell {
   flex: 1 0 auto;
   border: solid 1px gray;
+  min-width: 15px;
+  min-height: 15px;
+  background: lightgray;
+}
+
+.Flag {
+  background: lightblue;
+}
+
+.Empty {
+  border: dashed 1px lightgray;
+  background: white;
+}
+
+.Number {
+  border: dashed 1px lightgray;
+  background: rgb(240, 240, 240);
 }
