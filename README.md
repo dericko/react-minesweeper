@@ -1,4 +1,4 @@
-A minesweeper application built using react/redux.
+A minesweeper application built using react/redux. Build with create-react-app.
 
 ## To run:
 ```
@@ -15,11 +15,12 @@ How to lose: click on a bomb
 - Red Bs are other bombs
 - Yellow @s are misplaced flags
 
-Configuration: edit `gameConfig.js` to adjust board size, number of bombs
+## Configuration:
+
+Edit `gameConfig.js` to adjust board size, number of bombs
+
+## Learn more:
 
 Strategy: [How to play](http://www.minesweeper.info/wiki/Strategy)
 
 Origins: [Minesweeping ships](https://en.wikipedia.org/wiki/Minesweeper)
-
-By Derick Olson
-Bootstrapped with create-react-app
