@@ -17,7 +17,7 @@ How to lose: click on a bomb
 
 ## Configuration:
 
-Edit `gameConfig.js` to adjust board size, number of bombs
+Edit [`gameConfig.js`](https://github.com/dericko/minesweeper/blob/master/src/gameConfig.js) to adjust board size, number of bombs
 
 ## Learn more:
 
