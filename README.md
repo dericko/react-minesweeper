@@ -1,11 +1,13 @@
 A minesweeper application built using react/redux.
 
-To play:
+## To run:
 ```
 yarn start
 ```
 
-Directions: click cells to reveal bomb/clear/hint. Right click to flag.
+## To play:
+
+Click cells to reveal bomb/clear/hint. Right click to flag.
 
 How to win: place a flag on every bomb
 How to lose: click on a bomb
